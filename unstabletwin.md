@@ -27,10 +27,7 @@ TRACEROUTE (using port 80/tcp)
 HOP RTT       ADDRESS
 1   38.35 ms  10.17.0.1
 2   ... 4
-5   197.13 ms 10.10.110.200
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done at Mon Jul  7 20:25:02 2025 -- 1 IP address (1 host up) scanned in 32.47 seconds`
+5   197.13 ms 10.10.110.200`
 
 and then I again nmapped on the known services
 `Nmap 7.95 scan initiated Mon Jul  7 20:34:27 2025 as: /usr/lib/nmap/nmap --privileged -sCV -p 22,80 -oN nmap.p22_80 -v unstable.thm
@@ -47,5 +44,6 @@ PORT   STATE SERVICE VERSION
 |_http-title: Site doesn't have a title (text/html; charset=utf-8).
 |_http-server-header: nginx/1.14.1
 | http-methods: 
-|_  Supported Methods: GET HEAD OPTIONS
-`
+|_  Supported Methods: GET HEAD OPTIONS`
+
+
