@@ -47,3 +47,34 @@ PORT   STATE SERVICE VERSION
 |_  Supported Methods: GET HEAD OPTIONS`
 
 
+
+Also I did some fuzzing
+`ffuf -u http://unstable.thm/FUZZ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt                                                          
+                                                                                                                                                              
+        /'___\  /'___\           /'___\                                                                                                                       
+       /\ \__/ /\ \__/  __  __  /\ \__/                                                                                                                       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\                                                                                                                      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/                                                                                                                      
+         \ \_\   \ \_\  \ \____/  \ \_\                                                                                                                       
+          \/_/    \/_/   \/___/    \/_/        
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://unstable.thm/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+info                    [Status: 200, Size: 148, Words: 29, Lines: 2, Duration: 224ms]
+:: Progress: [4586/220560] :: Job [1/1] :: 235 req/sec :: Duration: [0:00:21] :: Errors: 0 ::
+[ERR] NOPE
+get_image               [Status: 500, Size: 291, Words: 38, Lines: 5, Duration: 175ms]
+:: Progress: [220560/220560] :: Job [1/1] :: 231 req/sec :: Duration: [0:17:49] :: Errors: 0 ::
+
+`
