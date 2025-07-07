@@ -77,4 +77,5 @@ info                    [Status: 200, Size: 148, Words: 29, Lines: 2, Duration: 
 get_image               [Status: 500, Size: 291, Words: 38, Lines: 5, Duration: 175ms]
 :: Progress: [220560/220560] :: Job [1/1] :: 231 req/sec :: Duration: [0:17:49] :: Errors: 0 ::`
 
-Then  I tried the `/info` endpoint but stil
+Then  I tried the `/info` endpoint but still nothing
+
