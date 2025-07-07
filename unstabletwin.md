@@ -32,4 +32,20 @@ HOP RTT       ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done at Mon Jul  7 20:25:02 2025 -- 1 IP address (1 host up) scanned in 32.47 seconds`
 
-and then
+and then I again nmapped on the known services
+`Nmap 7.95 scan initiated Mon Jul  7 20:34:27 2025 as: /usr/lib/nmap/nmap --privileged -sCV -p 22,80 -oN nmap.p22_80 -v unstable.thm
+Nmap scan report for unstable.thm (10.10.110.200)
+Host is up (0.17s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.0 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 ba:a2:40:8e:de:c3:7b:c7:f7:b3:7e:0c:1e:ec:9f:b8 (RSA)
+|   256 38:28:4c:e1:4a:75:3d:0d:e7:e4:85:64:38:2a:8e:c7 (ECDSA)
+|_  256 1a:33:a0:ed:83:ba:09:a5:62:a7:df:ab:2f:ee:d0:99 (ED25519)
+80/tcp open  http    nginx 1.14.1
+|_http-title: Site doesn't have a title (text/html; charset=utf-8).
+|_http-server-header: nginx/1.14.1
+| http-methods: 
+|_  Supported Methods: GET HEAD OPTIONS
+`
