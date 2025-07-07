@@ -75,6 +75,6 @@ info                    [Status: 200, Size: 148, Words: 29, Lines: 2, Duration: 
 :: Progress: [4586/220560] :: Job [1/1] :: 235 req/sec :: Duration: [0:00:21] :: Errors: 0 ::
 [ERR] NOPE
 get_image               [Status: 500, Size: 291, Words: 38, Lines: 5, Duration: 175ms]
-:: Progress: [220560/220560] :: Job [1/1] :: 231 req/sec :: Duration: [0:17:49] :: Errors: 0 ::
+:: Progress: [220560/220560] :: Job [1/1] :: 231 req/sec :: Duration: [0:17:49] :: Errors: 0 ::`
 
-`
+Then  I tried the `/info` endpoint but stil
