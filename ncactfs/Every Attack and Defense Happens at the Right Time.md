@@ -66,3 +66,67 @@ And the protocol stats too
 "Dynamic Host Configuration Protocol",8.695652173913043,8,21.930055219563503,3336,21.81531692220206,8,3336,21.81531692220206,8
 "Internet Control Message Protocol",38.04347826086956,35,46.01630291874836,7000,45.775545100543894,35,7000,45.775545100543894,35
 "Address Resolution Protocol",43.47826086956522,40,7.362608466999737,1120,7.324087216087023,40,1120,7.324087216087023,40
+
+Some endpoints were:
+[
+    {
+        "AS Number": "",
+        "AS Organization": "",
+        "Address": "8.8.8.8",
+        "Bytes": "8260",
+        "City": "",
+        "Country": "",
+        "Latitude": "",
+        "Longitude": "",
+        "Packets": "35",
+        "Rx Bytes": "4248",
+        "Rx Packets": "18",
+        "Tx Bytes": "4012",
+        "Tx Packets": "17"
+    },
+    {
+        "AS Number": "",
+        "AS Organization": "",
+        "Address": "10.0.2.15",
+        "Bytes": "8260",
+        "City": "",
+        "Country": "",
+        "Latitude": "",
+        "Longitude": "",
+        "Packets": "35",
+        "Rx Bytes": "4012",
+        "Rx Packets": "17",
+        "Tx Bytes": "4248",
+        "Tx Packets": "18"
+    },
+    {
+        "AS Number": "",
+        "AS Organization": "",
+        "Address": "192.168.41.2",
+        "Bytes": "3688",
+        "City": "",
+        "Country": "",
+        "Latitude": "",
+        "Longitude": "",
+        "Packets": "8",
+        "Rx Bytes": "1320",
+        "Rx Packets": "4",
+        "Tx Bytes": "2368",
+        "Tx Packets": "4"
+    },
+    {
+        "AS Number": "",
+        "AS Organization": "",
+        "Address": "192.168.41.3",
+        "Bytes": "3688",
+        "City": "",
+        "Country": "",
+        "Latitude": "",
+        "Longitude": "",
+        "Packets": "8",
+        "Rx Bytes": "2368",
+        "Rx Packets": "4",
+        "Tx Bytes": "1320",
+        "Tx Packets": "4"
+    }
+]
