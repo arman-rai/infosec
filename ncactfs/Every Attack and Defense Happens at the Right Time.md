@@ -7,3 +7,5 @@ The clue isn’t just what was sent… but when. Analyze the traffic. Reconstruc
 
 `Created By: ashwin7077`
 
+# Documentation
+At first I viewed the capture properties fil
