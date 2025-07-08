@@ -56,6 +56,7 @@ Statistics
 |Average bits/s|99|99|—|
 
 And the protocol stats too
+
 "Protocol","Percent Packets","Packets","Percent Bytes","Bytes","Bits/s","End Packets","End Bytes","End Bits/s","PDUs"
 "Frame",100,92,100,15212,99.47679886706769,0,0,0,92
 "Linux cooked-mode capture",100,92,12.463844333420983,1896,12.398633358661604,0,0,0,92
