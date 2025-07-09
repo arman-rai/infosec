@@ -76,5 +76,5 @@ Although it looks simple, please remember that a failed kernel exploit can lead 
 
 ## sudo privesc
 * Using the application functions to exploit 
-* Leverage `LD_PRELOAD` > 
+* Leverage `LD_PRELOAD` bloag 
 * 
