@@ -73,3 +73,5 @@ Although it looks simple, please remember that a failed kernel exploit can lead 
 2. Be sure you understand how the exploit code works BEFORE you launch it. Some exploit codes can make changes on the operating system that would make them unsecured in further use or make irreversible changes to the system, creating problems later. Of course, these may not be great concerns within a lab or CTF environment, but these are absolute no-nos during a real penetration testing engagement.
 3. Some exploits may require further interaction once they are run. Read all comments and instructions provided with the exploit code.
 4. You can transfer the exploit code from your machine to the target system using the `SimpleHTTPServer` Python module and `wget` respectively.
+
+### sudo privesc
