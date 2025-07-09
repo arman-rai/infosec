@@ -50,16 +50,8 @@ The target system’s environment will influence the tool you will be able to us
 
 ## Privilege escalation using kernel exploits
 Privilege escalation ideally leads to root privileges. This can sometimes be achieved simply by exploiting an existing vulnerability, or in some cases by accessing another user account that has more privileges, information, or access.
-
-  
-
 Unless a single vulnerability leads to a root shell, the privilege escalation process will rely on misconfigurations and lax permissions.
-
-  
-
 The kernel on Linux systems manages the communication between components such as the memory on the system and applications. This critical function requires the kernel to have specific privileges; thus, a successful exploit will potentially lead to root privileges.
-
-  
 
 The Kernel exploit methodology is simple;
 
@@ -68,8 +60,6 @@ The Kernel exploit methodology is simple;
 3. Run the exploit
 
 Although it looks simple, please remember that a failed kernel exploit can lead to a system crash. Make sure this potential outcome is acceptable within the scope of your penetration testing engagement before attempting a kernel exploit.
-
-  
 
 **Research sources:**  
 
