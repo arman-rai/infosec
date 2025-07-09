@@ -4,8 +4,11 @@ It's rare when performing a real-world penetration test to be able to gain a foo
 
 ## Enumeration 
 Some files to check out are
-* `/ro`
+* `/proc/version`
+* `/etc/issue`
+* 
 Some commands to check out are
 * `hostnmame`
 * `uname -a`
-* 
+* `ps aux`
+* `env`
