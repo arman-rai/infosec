@@ -81,3 +81,4 @@ Although it looks simple, please remember that a failed kernel exploit can lead 
 	* `sudo LD_PRELOAD=/home/user/ldpreload/shell.so find
 
 ## SUID privsec
+`find / -type f -perm -04000 -ls 2>/dev/null`
