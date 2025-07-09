@@ -75,5 +75,5 @@ Although it looks simple, please remember that a failed kernel exploit can lead 
 4. You can transfer the exploit code from your machine to the target system using the `SimpleHTTPServer` Python module and `wget` respectively.
 
 ## sudo privesc
-### Using the application functions which are usable by the normal user
-	
+* Using the application functions to exploit 
+* **Leverage LD_PRELOAD
