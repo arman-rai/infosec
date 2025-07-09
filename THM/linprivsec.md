@@ -17,4 +17,5 @@ Some commands to check out are
 * `id`
 * `history`
 * `ifconfig` and `ip route`
-* ``
+* `netstat`
+* 
