@@ -170,3 +170,10 @@ gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
 pcp:x:987:981:Performance Co-Pilot:/var/lib/pcp:/sbin/nologin
 sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
 avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+oprofile:x:16:16:Special user account to be used by OProfile:/var/lib/oprofile:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+leonard:x:1000:1000:leonard:/home/leonard:/bin/bash
+mailnull:x:47:47::/var/spool/mqueue:/sbin/nologin
+smmsp:x:51:51::/var/spool/mqueue:/sbin/nologin
+nscd:x:28:28:NSCD Daemon:/:/sbin/nologin
+missy:x:1001:1001::/home/missy:/bin/bash
