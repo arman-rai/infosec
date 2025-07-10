@@ -233,3 +233,12 @@ smmsp:!!:18785::::::
 nscd:!!:18785::::::
 missy:$6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/:18785:0:99999:7:::
 [leonard@ip-10-10-61-54 ~]$ ^C
+
+
+Then I used unshadow on my device and made a file `final`
+
+then i used the rockyou to find the passwd
+
+then I found out a username and passwd
+
+then I ssh'd 
