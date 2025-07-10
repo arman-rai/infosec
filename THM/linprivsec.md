@@ -89,4 +89,6 @@ Another method system administrators can use to increase the privilege level of 
 The capabilities man page provides detailed information on its usage and options.
 
 using `getcap` as it displays the name and capabilities of each specified file.
-using some flags and redirecting the errors to /dev/null, we get the 
+using some flags and redirecting the errors to /dev/null, we get the shell via GTFObins
+
+## Uisnt 
