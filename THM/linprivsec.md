@@ -241,4 +241,8 @@ then i used the rockyou to find the passwd
 
 then I found out a username and passwd
 
-then I ssh'd 
+then I ssh'd to it and found the flag1 file
+
+then I knew that I could use find so i did `sudo find . -exec /bin/sh \; -quit`
+then priv esc was done 
+and i found the flag2
