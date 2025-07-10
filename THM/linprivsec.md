@@ -222,3 +222,16 @@ gdm:!!:18785::::::
 rpcuser:!!:18785::::::
 nfsnobody:!!:18785::::::
 gnome-initial-setup:!!:18785::::::
+
+
+pcp:!!:18785::::::
+sshd:!!:18785::::::
+avahi:!!:18785::::::
+oprofile:!!:18785::::::
+tcpdump:!!:18785::::::
+leonard:$6$JELumeiiJFPMFj3X$OXKY.N8LDHHTtF5Q/pTCsWbZtO6SfAzEQ6UkeFJy.Kx5C9rXFuPr.8n3v7TbZEttkGKCVj50KavJNAm7ZjRi4/::0:99999:7:::
+mailnull:!!:18785::::::
+smmsp:!!:18785::::::
+nscd:!!:18785::::::
+missy:$6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/:18785:0:99999:7:::
+[leonard@ip-10-10-61-54 ~]$ ^C
