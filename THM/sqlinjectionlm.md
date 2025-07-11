@@ -14,5 +14,5 @@ The **UPDATE** statement tells the database we wish to update one or more rows
 The **DELETE** statement tells the database we wish to delete one or more rows of data. Apart from missing the columns you wish to return, the format of this query is very similar to the SELECT. You can specify precisely which data to delete using the **where** clause and the number of rows to be deleted using the **LIMIT** clause.
 
 
-Example: `https://website.thm/blog?id=2;--` 
+Example: `https://website.thm/blog?id=2;--` gives `SELECT * from blog where id=2;--`
 This was just one example of an SQL Injection vulnerability of a type called In-Band SQL Injection; there are three types in total: In-Band, Blind and Out-of-Band.
