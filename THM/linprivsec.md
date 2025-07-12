@@ -4,7 +4,7 @@ It's rare when performing a real-world penetration test to be able to gain a foo
 
 ## Enumeration 
 Some files to check out are
-* `/proc/version`
+	* `/proc/version`
 * `/etc/issue`
 * `/etc/passwd`
 * 
