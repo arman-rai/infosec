@@ -37,4 +37,4 @@ gives OS build, acquisition timestamp, memory layout details
 View running and recently terminated processes, filter for anomalies.
 
 windows.pstree and window.psscan
-windows.dlllist, windows.malfind, won
+windows.dlllist, windows.malfind, windows.netscan 
