@@ -2,3 +2,7 @@ Hosted Hypervisors, also known as Type 2 Hypervisors, are a form of virtualizati
 While Hosted Hypervisors are not as common an area for investigations as their server counterparts, there are situations where investigations are required on either the host containing the Hypervisor or a VM running on the target computer.
 
 We need to know about the internals of the VM
+It's types are:
+Type 1 (Bare metal)
+These types of Hypervisors have direct access to a system's physical hardware, don’t have to go through another operating system layer (such as Windows or Linux), and are used to run many virtual machines on devices such as servers.
+Hypervisors like Hyper-V and VMware ESXi are great examples of type 1 Hypervisors. Additionally, type 1 Hypervisors form the backbone of cloud computing.
