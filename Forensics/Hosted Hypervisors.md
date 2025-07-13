@@ -37,3 +37,5 @@ However, with that said, nested virtualisation adds complexity because of the ad
 While guest additions add multiple useful features to a guest VM, they do potentially increase the risk of attack. For example, ransomware can potentially escape onto the host in the case of shared folders, or a data leak can occur.
 Additionally, guest additions can serve as an opportunity for attackers to escalate their privileges. As these additions run with elevated privileges due to their nature, a vulnerability within them can serve as a potential method for an attacker to obtain administrative privileges within the guest.
 Moreover, one of an attacker's goals is to perform a VM escape. This type of attack involves breaking the virtualisation layer and escaping from the guest environment to the host. For example, in 2018, [CVE-2018-2693](https://nvd.nist.gov/vuln/detail/cve-2018-2693) was disclosed within the guest additions of VirtualBox. This CVE abused a vulnerability within the guest additions package to escape from the guest to the host.
+
+# 
