@@ -30,6 +30,9 @@ activate.csh  Activate.ps1   pip3  python   python3.13  volshell
 Some forensics are: 
 ┌──(volaty3)─(namura㉿namu)-[~/venvs/volaty3/bin]
 └─$ python3 vol -f /home/namura/test/Challenge.raw windows.info
+gives OS build, acquisition timestamp, memory layout details
 
 ┌──(volaty3)─(namura㉿namu)-[~/venvs/volaty3/bin]
 └─$ python3 vol -f /home/namura/test/Challenge.raw windows.pslist
+View running and recently terminated processes, filter for anomalies.
+
