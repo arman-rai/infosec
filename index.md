@@ -36,3 +36,4 @@ gives OS build, acquisition timestamp, memory layout details
 └─$ python3 vol -f /home/namura/test/Challenge.raw windows.pslist
 View running and recently terminated processes, filter for anomalies.
 
+windows.pstree and window.psscan
