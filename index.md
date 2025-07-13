@@ -1,3 +1,4 @@
+## venv volatility finds
 So one of my findings is that the system binaries can only be found once the python venv is loaded
 so this is valid
 `──(volaty3)─(namura㉿namu)-[~/venvs/volaty3/bin]
