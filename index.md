@@ -27,3 +27,9 @@ activate.csh  Activate.ps1   pip3  python   python3.13  volshell
 └─$ which vol
 /home/namura/venvs/volaty3/bin/vol
 `
+Some forensics are: 
+┌──(volaty3)─(namura㉿namu)-[~/venvs/volaty3/bin]
+└─$ python3 vol -f /home/namura/test/Challenge.raw windows.info
+
+┌──(volaty3)─(namura㉿namu)-[~/venvs/volaty3/bin]
+└─$ python3 vol -f /home/namura/test/Challenge.raw windows.pslist
