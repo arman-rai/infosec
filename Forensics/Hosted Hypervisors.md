@@ -9,3 +9,5 @@ Hypervisors like Hyper-V and VMware ESXi are great examples of type 1 Hypervisor
 ### Type 2 (Hosted)
 These Hypervisors, also known as hosted Hypervisors, differ from bare metal (type 1) Hypervisors because they run on top of an existing operating system (such as Windows or Linux). Hosted Hypervisors are usually found in small environments, such as developers or end-users machines, where only a small handful of virtual machines are required (such as running Windows on Linux).
 Examples of hosted Hypervisors included VirtualBox and VMware Workstation/Player.
+
+Most used ones: Hyper-V
