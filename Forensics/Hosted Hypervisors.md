@@ -12,4 +12,4 @@ Examples of hosted Hypervisors included VirtualBox and VMware Workstation/Player
 
 Examples:
 #### Hyper-V(type 1)
-For example, Hyper-V can be installed on a desktop for WSL2 (Windows Subsystem for Linux), where the Linux OS runs within a VM on Hyper-V.
+Hyper-V can be installed on a desktop for WSL2 (Windows Subsystem for Linux), where the Linux OS runs within a VM on Hyper-V.
