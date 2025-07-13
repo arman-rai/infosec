@@ -11,4 +11,4 @@ These Hypervisors, also known as hosted Hypervisors, differ from bare metal (typ
 Examples of hosted Hypervisors included VirtualBox and VMware Workstation/Player.
 
 Examples:
-Hyper-V(type 1), VirtualBox, VMware ESXi
+Hyper-V(type 1), VirtualBox, VMware ESXi, VMware Workstation, QEMU
