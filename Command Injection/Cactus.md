@@ -6,7 +6,7 @@ found some history on ~/.bash_history
 	ls -lsa /etc/suricata/rules/
 	ls -lsa /etc/suricata/
 	ls -lsa /etc/suricata/rules/
-	ls -lsa /etc/suricata/
+		ls -lsa /etc/suricata/
 	nano /etc/suricata/suricata.yaml 
 	cat /etc/suricata/suricata.yaml 
 	cd /var/log/suricata
