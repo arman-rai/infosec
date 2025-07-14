@@ -1,5 +1,5 @@
 
-ssh'd to the system
+ssh'd to the system using `user@$IP:tryhackme`
 found some history on ~/.bash_history
 	nano /etc/suricata/rules/cactus_exploit.rules
 	ls /etc/suricata/rules/
