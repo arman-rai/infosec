@@ -1,7 +1,6 @@
 http://10.10.248.124:62078/
 This was mind bogging for me, completed in around 2 to 3 hrs
 
-
 ## Enumeration
 nmapped the IP, got a lot of open ports
 I banner grabbed all of them and check if anything is there
