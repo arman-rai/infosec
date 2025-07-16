@@ -2,4 +2,7 @@ We can use RDP to login
 `┌──(namura㉿namu)-[~]
 └─$ xfreerdp3 /u:administrator /p:letmein123! /v:10.10.164.178 `
 
-then 
+## File system
+NTFS is known as a journaling file system. In case of a failure, the file system can automatically repair the folders/files on disk using information stored in a log file. This function is not possible with FAT.
+
+Another feature of NTFS is **Alternate Data Streams** ( **ADS** ).
