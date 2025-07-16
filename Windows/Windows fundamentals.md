@@ -10,4 +10,5 @@ Another feature of NTFS is **Alternate Data Streams** ( **ADS** ). Every fil
 Environment variables store information about the operating system environment. This information includes details such as the operating system path, the number of processors used by the operating system, and the location of temporary folders
 
 ## User accounts control (UAC)
-`lusrmgr.msc` gives the local user manager window.
+`lusrmgr.msc` gives the local user manager window. 
+https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/how-it-works
