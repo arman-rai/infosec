@@ -1,4 +1,4 @@
-We can use RDP to login
+We can use [[RDP]] to login
 `┌──(namura㉿namu)-[~]
 └─$ xfreerdp3 /u:administrator /p:letmein123! /v:10.10.164.178 `
 
@@ -12,3 +12,4 @@ Environment variables store information about the operating system environment. 
 ## User accounts control (UAC)
 `lusrmgr.msc` gives the local user manager window. 
 https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/how-it-works
+
