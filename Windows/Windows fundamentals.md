@@ -4,5 +4,4 @@ We can use RDP to login
 
 ## File system
 NTFS is known as a journaling file system. In case of a failure, the file system can automatically repair the folders/files on disk using information stored in a log file. This function is not possible with FAT.
-
 Another feature of NTFS is **Alternate Data Streams** ( **ADS** ). Every file has at least one data stream ( `$DATA` ), and ADS allows files to contain more than one stream of data. From a security perspective, malware writers have used ADS to hide data.
