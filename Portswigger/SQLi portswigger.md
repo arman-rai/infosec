@@ -23,28 +23,10 @@
 - When no direct data output:
     - **Boolean-based**: compare conditions to infer data:
         `' AND SUBSTRING((SELECT password FROM Users WHERE username='Administrator'),1,1)>'m`
-        
-        Repeat until resolved. [PortSwigger+8PortSwigger+8PortSwigger+8](https://portswigger.net/web-security/sql-injection/blind?utm_source=chatgpt.com)
-        
+        Repeat until resolved. 
     - **Error-based**: use errors to leak data:
-        
-        sql
-        
-        CopyEdit
-        
-        `SELECT CAST((SELECT password FROM users LIMIT 1) AS int)`
-        
-    
-    [PortSwigger+9PortSwigger+9PortSwigger+9](https://portswigger.net/web-security/sql-injection/blind?utm_source=chatgpt.com)
-    
+        `SELECT CAST((SELECT password FROM users LIMIT 1) AS int)`    
     - **Time-based**:
-        
-        sql
-        
-        CopyEdit
-        
         `'…' OR pg_sleep(10)--` 
-        
-        Observe 10s delay. [PortSwigger](https://portswigger.net/web-security/sql-injection/blind/lab-time-delays?utm_source=chatgpt.com)
-        
+        Observe 10s delay. 
     - **Out-of-band (OAST)**: trigger DNS/HTTP to exfiltrate.
