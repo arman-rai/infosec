@@ -36,9 +36,6 @@
     - SQL Server/MySQL: `SELECT @@version`
     - PostgreSQL: `SELECT version()`
     - Oracle: `SELECT * FROM v$version`
-        
 - Inspect schema:
-    
     - `information_schema.tables` → list tables.
-        
     - `information_schema.columns WHERE table_name='X'` → columns.
